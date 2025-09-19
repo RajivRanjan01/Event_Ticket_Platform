@@ -16,7 +16,7 @@ public class SecurityConfig {
             HttpSecurity http,
             UserProvisoningFilter userProvisioningFilter) throws Exception{
         http.authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
-                        //catch all rule
+                        //catch all rules
                         authorizationManagerRequestMatcherRegistry.anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
