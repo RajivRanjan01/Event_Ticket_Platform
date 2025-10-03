@@ -16,8 +16,10 @@ public class SecurityConfig {
             HttpSecurity http,
             UserProvisoningFilter userProvisioningFilter) throws Exception{
         http.authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
-                        //catch all rules
-                        authorizationManagerRequestMatcherRegistry.anyRequest().authenticated())
+                        authorizationManagerRequestMatcherRegistry
+                                .requestMatchers("/api/events/**").permitAll()
+                                .requestMatchers("/api/tickets/*/public").permitAll()
+                                .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
