@@ -17,8 +17,9 @@ public class SecurityConfig {
             UserProvisoningFilter userProvisioningFilter) throws Exception{
         http.authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
                         authorizationManagerRequestMatcherRegistry
-                                .requestMatchers("/api/events/**").permitAll()
-                                .requestMatchers("/api/tickets/*/public").permitAll()
+                                .requestMatchers("/api/v1/published-events/**").permitAll()
+                                .requestMatchers("/api/v1/events/**").permitAll()
+                                .requestMatchers("/api/v1/tickets/*/public").permitAll()
                                 .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
