@@ -1,4 +1,4 @@
-package com.devTiro.Ticket.controllers;
+package com.devTiro.Ticket.controller;
 
 import com.devTiro.Ticket.domain.Event;
 import com.devTiro.Ticket.domain.EventStatusEnum;
